@@ -28,12 +28,14 @@ nicht manuell heruntergeladen werden. Die von GitHub angebotenen
 2. Ein Whisper-Modell auswählen und herunterladen. Optionale GPU-Beschleunigung
    und Textüberarbeitung lassen sich während der Installation auswählen.
 3. Brabbel starten und unter **Aufnahme → Mikrofon** das gewünschte Mikrofon prüfen.
-4. In ein Textfeld wechseln und **Strg + Alt + Leertaste** drücken.
-5. Sprechen und denselben Hotkey erneut drücken. Brabbel verarbeitet die Aufnahme
+4. In ein Textfeld wechseln und **Strg + Win** gedrückt halten.
+5. Sprechen und die Tasten loslassen. Brabbel verarbeitet die Aufnahme
    lokal und fügt den Text ein.
 
-Die Hotkeys sind anpassbar. Alternativ lässt sich **Push-to-Talk** einrichten:
-Solange du den dafür gewählten Hotkey gedrückt hältst, wird aufgenommen.
+Standard ist **Push-to-Talk**: Solange du den Hotkey gedrückt hältst, wird aufgenommen.
+Die Hotkeys sind anpassbar. Alternativ lässt sich ein Umschalt-Hotkey einrichten,
+der die Aufnahme mit einem Tastendruck startet und mit dem nächsten stoppt.
+**Strg + Win + H** öffnet die Schnell-Historie.
 
 Brabbel bleibt im Infobereich der Windows-Taskleiste aktiv. Ein Doppelklick auf
 das Symbol öffnet die Einstellungen; über das Kontextmenü kannst du die App beenden.
