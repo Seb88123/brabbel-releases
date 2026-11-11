@@ -7,7 +7,7 @@
 <p align="center"><strong>Brabbel drauflos. Der Text kommt trotzdem ordentlich raus.</strong></p>
 
 <p align="center">
-  Diktieren in jede Windows-Anwendung. Spracherkennung und Textüberarbeitung laufen komplett auf deinem PC.<br>
+  Diktieren in jede Anwendung unter Windows und macOS. Spracherkennung und Textüberarbeitung laufen komplett auf deinem Rechner.<br>
   Kein Abo, kein Konto, keine Cloud.
 </p>
 
@@ -15,11 +15,14 @@
   <a href="https://github.com/Seb88123/brabbel-releases/releases/latest"><img alt="Neueste Version" src="https://img.shields.io/github/v/release/Seb88123/brabbel-releases?label=Download&color=2f9e5b"></a>
   <a href="https://github.com/Seb88123/brabbel-releases/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/Seb88123/brabbel-releases/total?color=2f9e5b"></a>
   <img alt="Plattform" src="https://img.shields.io/badge/Windows-10%20%7C%2011%20(64%20Bit)-0078d4">
+  <img alt="Mac" src="https://img.shields.io/badge/macOS-13%2B%20(Apple%20Silicon)-555555">
   <img alt="Lizenz" src="https://img.shields.io/badge/Lizenz-GPL--3.0-blue">
 </p>
 
 <p align="center">
-  <a href="https://github.com/Seb88123/brabbel-releases/releases/latest"><strong>⬇ BrabbelSetup.exe herunterladen</strong></a>
+  <a href="https://github.com/Seb88123/brabbel-releases/releases/latest"><strong>⬇ Windows: BrabbelSetup.exe</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/Seb88123/brabbel-releases/releases?q=mac-v&expanded=true"><strong>⬇ Mac: Brabbel-…-macOS-arm64.dmg</strong></a>
 </p>
 
 ---
@@ -54,6 +57,17 @@ Brabbel ist auf Deutsch gebaut, für deutsche Diktate und mit einer komplett deu
 4. Das Setup lädt nur die Komponenten, die du ausgewählt hast, prüft jeden Download per SHA-256 und startet Brabbel.
 
 Brabbel läuft danach als grüne Kachel im Infobereich der Taskleiste. Beim Start zeigt eine kleine Karte, ob Mikrofon, Modell und Hotkey bereit sind.
+
+## Brabbel für Mac
+
+Brabbel gibt es auch für Macs mit Apple Silicon (macOS 13 oder neuer), als Menüleisten-App im Liquid-Glass-Design von macOS 26. Die Mac-Version hat eine eigene Versionsnummer; ihre Releases heißen `mac-v…` und sind nie als „Latest“ markiert, damit Windows-Installationen sie nicht anbieten.
+
+1. Im neuesten **[Mac-Release](https://github.com/Seb88123/brabbel-releases/releases?q=mac-v&expanded=true)** `Brabbel-<Version>-macOS-arm64.dmg` laden, öffnen und Brabbel in **Programme** ziehen.
+2. Beim ersten Start per Rechtsklick → **Öffnen** bestätigen: Brabbel ist mit einem eigenen Zertifikat signiert, nicht von Apple beglaubigt.
+3. Die drei Rückfragen von macOS erlauben: **Mikrofon**, **Bedienungshilfen** (Text eintippen) und **Eingabeüberwachung** (Hotkeys wie Ctrl+Cmd). Brabbel öffnet die passende Stelle in den Systemeinstellungen selbst; Updates behalten die Freigaben.
+4. **Ctrl+Cmd** halten und sprechen, oder unter **Aufnahme → Hotkey & Modus** eine eigene Taste wie F19 einlernen.
+
+Auf dem Mac läuft die Spracherkennung mit whisper.cpp auf der **Neural Engine** und der GPU: Ein kurzes Diktat mit `large-v3-turbo` braucht auf einem M5 Pro rund 0,2 Sekunden. Die Textüberarbeitung läuft über Metal auf der GPU. Läuft Musik, pausiert Brabbel sie während der Aufnahme. Mit AirPods zeigt das Overlay kurz **„Moment …“**, bis das Mikrofon bereit ist, weil die AirPods dafür rund eine Sekunde ins Headset-Profil wechseln. Updates installiert Brabbel über **Nach Updates suchen** selbst. RGB-Beleuchtung und die CUDA/Vulkan-Pakete gibt es nur unter Windows.
 
 ## Erste Schritte
 
@@ -150,7 +164,7 @@ Brabbel misst jedes Diktat: Wartezeit nach der Aufnahme, Anteile von Erkennung, 
 
 | | Minimum | Empfohlen |
 | --- | --- | --- |
-| Betriebssystem | Windows 10 (Version 2004) oder Windows 11, 64 Bit | Windows 11 |
+| Betriebssystem | Windows 10 (Version 2004) oder Windows 11, 64 Bit; macOS 13 auf Apple Silicon | Windows 11; macOS 26 |
 | Arbeitsspeicher | 8 GB | 16 GB für die Textüberarbeitung |
 | Grafikkarte | keine, Verarbeitung auf CPU | NVIDIA (CUDA) oder AMD / Intel mit Vulkan-1.2-Treiber |
 | Speicherplatz | ca. 1 GB plus gewähltes Modell | 3 bis 6 GB mit großem Modell, GPU-Laufzeit und Textmodell |
@@ -173,7 +187,7 @@ Die GPU-Pakete werden im Setup angeboten oder später in den Einstellungen nachi
 - **Kein Cloud-Dienst.** Aufnahmen, Transkripte und Kontexttexte gehen an keinen Transkriptions- oder KI-Dienst.
 - **Keine Telemetrie.** Brabbel sendet keine Nutzungsdaten.
 - **Internet nur auf Klick.** Für Modelldownloads, GPU-Pakete und die Updateprüfung. Die automatische Updateprüfung beim Start ist standardmäßig aus.
-- **Alles an einem Ort.** Einstellungen, Modelle, Historie und Protokolle liegen unter `%LOCALAPPDATA%\Brabbel`. Die Historie ist abschaltbar und löschbar.
+- **Alles an einem Ort.** Einstellungen, Modelle, Historie und Protokolle liegen unter `%LOCALAPPDATA%\Brabbel` (Mac: `~/Library/Application Support/Brabbel`). Die Historie ist abschaltbar und löschbar.
 - **Protokolle ohne Inhalt.** Das Log enthält Zeiten, Geräte und Fehler, aber nie diktierten Text.
 
 ## Updates
@@ -185,7 +199,7 @@ Neue Versionen erscheinen unter [Releases](https://github.com/Seb88123/brabbel-r
 - Ein Update ersetzt nur die Programmdateien. Einstellungen, Historie, Modelle und GPU-Pakete bleiben erhalten.
 - Bei einem Fehler stellt der Installer die vorherige Version wieder her.
 
-Die Dateien `update.json` und `update.sig` in den Releases gehören zur Updatefunktion und müssen nicht manuell heruntergeladen werden. Die „Source code“-Archive von GitHub sind keine Installationspakete.
+Die Dateien `update.json` und `update.sig` (Mac: `update-macos.json`, `update-macos.sig` und `Brabbel-macOS-arm64.zip`) in den Releases gehören zur Updatefunktion und müssen nicht manuell heruntergeladen werden. Die „Source code“-Archive von GitHub sind keine Installationspakete.
 
 ## Bekannte Grenzen
 
@@ -210,4 +224,4 @@ Brabbel steht unter der **GNU General Public License v3.0 oder später**. Der Qu
 
 Brabbel baut auf großartiger Open-Source-Arbeit auf: Whisper (OpenAI), [faster-whisper](https://github.com/SYSTRAN/faster-whisper) und CTranslate2, [whisper.cpp](https://github.com/ggml-org/whisper.cpp) und [llama.cpp](https://github.com/ggml-org/llama.cpp), Qwen3 (Alibaba), Silero VAD, [OpenRGB](https://openrgb.org), Qt for Python, PortAudio. Nachgeladene Programme und Modelle werden mit ihren Lizenztexten unter `%LOCALAPPDATA%\Brabbel` abgelegt.
 
-Whisper, OpenRGB, Logitech, G HUB, ASUS, Aura, NVIDIA, CUDA, Vulkan und Windows sind Marken ihrer jeweiligen Inhaber und werden hier nur zur Beschreibung der Kompatibilität genannt.
+Whisper, OpenRGB, Logitech, G HUB, ASUS, Aura, NVIDIA, CUDA, Vulkan, Windows, Apple, macOS, AirPods und Apple Silicon sind Marken ihrer jeweiligen Inhaber und werden hier nur zur Beschreibung der Kompatibilität genannt.
